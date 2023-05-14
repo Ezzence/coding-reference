@@ -1,0 +1,19 @@
+<launch>
+
+  <!-- VoxelGrid filter 
+  <node pkg="nodelet" type="nodelet" name="voxel_grid" args="load pcl/VoxelGrid pcl_manager" output="screen">
+    <remap from="~input" to="/points" />
+    <remap from="~output" to="/points_filtered" />
+    <rosparam>
+      filter_field_name: y
+      filter_limit_min: -3.2
+      filter_limit_max: -1.0
+      filter_limit_negative: False
+      leaf_size: 0.03
+    </rosparam>
+  </node> -->
+
+  <!-- Fence scanning algorithm -->
+  <node pkg="pointcloud_processing" type="pointcloud_processing_node" name="open3d" output="screen" />
+  <node pkg="tf" type="static_transform_publisher" name="velodyne_tf" args="0 0 0 0 0 0 map velodyne 100" />
+</launch>
